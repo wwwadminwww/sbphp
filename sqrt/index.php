@@ -1,6 +1,7 @@
 <?php
 class MySqrt
 {
+	/*The square root was calculated by Newton's method*/
 	public function skrt($value,$precision)
 	{
 		if ($value > 0){
