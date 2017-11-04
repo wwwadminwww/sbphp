@@ -1,16 +1,24 @@
 <?php
 class MySqrt
 {
+	private $value;
+	private $precision;
+
+	public function __construct($value,$precision){
+		$this->value = $value;
+		$this->precision = $precision;
+	}
+
 	/*The square root was calculated by Newton's method*/
-	public function skrt($value,$precision)
+	public function getSquareRoot()
 	{
-		if ($value > 0){
+		if ($this->value > 0){
 			$x = 1;
-			while (abs($x * $x - $value) > 0.00001){
-				$x = 0.5 * ($x + $value/$x);
+			while (abs($x * $x - $this->value) > 0.00001){
+				$x = 0.5 * ($x + $this->value/$x);
 			}
-			return round($x,$precision);
-		}elseif($value == 0){
+			return round($x,$this->precision);
+		}elseif($this->value == 0){
 			return 0;
 		}else{
 			return "Number cannot be less zero";
@@ -18,6 +26,6 @@ class MySqrt
 	}
 }
 
-$a = new MySqrt;
-echo $a->skrt(5,3);
+$a = new MySqrt(8,3);
+echo $a->getSquareRoot();
 ?>
